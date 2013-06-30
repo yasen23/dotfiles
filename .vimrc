@@ -29,6 +29,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'The-NERD-tree'
 Bundle 'wincent/Command-T'
@@ -38,6 +39,8 @@ Bundle 'hlissner/vim-multiedit'
 Bundle 'pangloss/vim-javascript'
 Bundle 'xolox/vim-notes'
 Bundle 'xolox/vim-misc'
+Bundle 'jiangmiao/auto-pairs'
+
 
 " Disable netrw
 let g:loaded_netrw = 1
