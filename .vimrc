@@ -12,6 +12,10 @@ filetype plugin on
 
 set autoindent
 
+" Code Folding
+set foldlevelstart=20
+set foldmethod=indent
+
 " Setup vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc('~/.vim/vundle')
