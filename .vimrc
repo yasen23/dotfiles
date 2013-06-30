@@ -12,9 +12,6 @@ filetype plugin on
 
 set autoindent
 
-" Code Folding
-set foldlevelstart=20
-set foldmethod=indent
 
 " Setup vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -45,6 +42,13 @@ Bundle 'xolox/vim-notes'
 Bundle 'xolox/vim-misc'
 Bundle 'jiangmiao/auto-pairs'
 
+" Code Folding
+set foldlevelstart=20
+set foldmethod=indent
+
+" Disable gvim toolbars by default
+set guioptions-=T
+set guioptions-=m>
 
 " Disable netrw
 let g:loaded_netrw = 1
@@ -54,8 +58,6 @@ let g:loaded_netrwPlugin = 1
 execute pathogen#infect()
 
 " Move lines with ctrl + j/k
-" inoremap <C-J> <Esc>:m .+1<CR>==gi
-" inoremap <C-K> <Esc>:m .-2<CR>==gi
 nnoremap <C-J> :m .+1<CR>==
 nnoremap <C-K> :m .-2<CR>==
 vnoremap <C-J> :m '>+1<CR>gv=gv
