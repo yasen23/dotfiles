@@ -1,0 +1,32 @@
+[user]
+	name = Nikola Taushanov
+	email =
+[core]
+	editor = vim
+[color]
+	ui = true
+[alias]
+    a = add
+    c = commit
+    ca = commit -a
+    cm = commit -m
+    cob = checkout -b
+    ap = add --patch
+    p = add --patch
+    s = status
+    amend = commit --amend -c HEAD
+    gzip = !git archive HEAD | gzip > $PWD.tar.gz
+    files = show --pretty="format:" --name-only
+    l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    lol = log --pretty=oneline --abbrev-commit --graph --decorate
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    staged = diff --cached
+    squash = rebase -i @{u}
+    undo = reset --soft HEAD^
+    unstage = reset HEAD --
+    unstaged = diff
+[credential]
+	helper = cache --timeout=604800
+[diff]
+	external = external-git-diff
