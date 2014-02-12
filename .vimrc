@@ -3,8 +3,8 @@ filetype off
 set nocompatible
 
 set number
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-" set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -12,35 +12,36 @@ filetype plugin on
 
 set autoindent
 
-
 " Setup vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc('~/.vim/vundle')
 
 " Bundles
-Bundle 'guns/vim-clojure-static'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'The-NERD-tree'
-Bundle 'wincent/Command-T'
-Bundle 'Tagbar'
 Bundle 'SingleCompile'
+Bundle 'Tagbar'
+Bundle 'The-NERD-tree'
+Bundle 'abijr/colorpicker'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'gmarik/vundle'
+Bundle 'guns/vim-clojure-static'
 Bundle 'hlissner/vim-multiedit'
-Bundle 'pangloss/vim-javascript'
-Bundle 'xolox/vim-notes'
-Bundle 'xolox/vim-misc'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'wincent/Command-T'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
+Bundle 'adimit/prolog.vim'
 
 " Code Folding
 set foldlevelstart=20
@@ -62,6 +63,9 @@ nnoremap <C-J> :m .+1<CR>==
 nnoremap <C-K> :m .-2<CR>==
 vnoremap <C-J> :m '>+1<CR>gv=gv
 vnoremap <C-K> :m '<-2<CR>gv=gv
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
@@ -113,4 +117,10 @@ augroup myvimrc
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+" Indentation
+vnoremap > >gv
+vnoremap < <gv
 
+" Add cyrillic keymaping
+set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
+" }}}`
