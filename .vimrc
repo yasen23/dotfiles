@@ -94,15 +94,6 @@ set cursorline
 set colorcolumn=80
 set hlsearch
 
-" Tab navigation
-" nmap <C-S-tab> :tabprevious<cr>
-" nmap <C-tab> :tabnext<cr>
-" imap <C-S-tab> <ESC>:tabprevious<cr>i
-" imap <C-tab> <ESC>:tabnext<cr>i
-" nmap <C-t> :tabnew<cr>
-" :imap <C-t> <ESC>:tabnew<cr>i
-" :map <C-w> :tabclose<cr>
-
 " SimpleCompile
 nmap <F8> :SCCompile<cr>
 nmap <F9> :SCCompileRun<cr>
@@ -124,3 +115,8 @@ vnoremap < <gv
 " Add cyrillic keymaping
 set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
 " }}}`
+
+" Add shortcuts for copy and paste from the clipboard
+nnoremap <Leader>p "+p
+vnoremap <Leader>y "+y
+
