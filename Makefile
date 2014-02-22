@@ -1,9 +1,9 @@
 install: install-vim \
-	  install-git
+	install-git
 
 install-vim:
-		ln -s .vim ~/.vim
-		ln -s .vimrc ~/.vimrc
+	ln -s `pwd`/.vim ~/.vim
+	ln -s `pwd`/.vimrc ~/.vimrc
 
 install-git:
-		ln -s .gitconfig ~/.gitconfig
+	ln -s `pwd`/.gitconfig ~/.gitconfig
