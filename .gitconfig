@@ -1,9 +1,10 @@
-[user]
-	name = Nikola Taushanov
+[include]
+    path = ~/.gitconfig_user
 [core]
-	editor = vim
+  	editor = vim
+  	excludesfile = ~/.gitignore_global
 [color]
-	ui = true
+  	ui = true
 [alias]
     a = add
     c = commit
@@ -26,6 +27,11 @@
     unstage = reset HEAD --
     unstaged = diff
 [credential]
-	helper = cache --timeout=604800
+  	helper = cache --timeout=604800
 [diff]
-	external = external-git-diff
+  	tool = meld
+    external = external_git_diff
+[difftool "meld"]
+    cmd = meld \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	  prompt = false
