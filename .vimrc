@@ -1,5 +1,7 @@
 syntax on
-filetype off
+filetype on
+filetype indent on
+filetype plugin on
 set nocompatible
 
 set number
@@ -8,40 +10,42 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-filetype plugin on
-
 set autoindent
 
 " Setup vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc('~/.vim/vundle')
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
 
 " Bundles
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'SingleCompile'
-Bundle 'Tagbar'
-Bundle 'The-NERD-tree'
-Bundle 'abijr/colorpicker'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'gmarik/vundle'
-Bundle 'guns/vim-clojure-static'
-Bundle 'hlissner/vim-multiedit'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-notes'
-Bundle 'adimit/prolog.vim'
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'SingleCompile'
+Plugin 'Tagbar'
+Plugin 'The-NERD-tree'
+Plugin 'abijr/colorpicker'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'gmarik/vundle'
+Plugin 'guns/vim-clojure-static'
+Plugin 'hlissner/vim-multiedit'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'wincent/Command-T'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+Plugin 'adimit/prolog.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 " Code Folding
 set foldlevelstart=20
@@ -64,8 +68,9 @@ nnoremap <C-K> :m .-2<CR>==
 vnoremap <C-J> :m '>+1<CR>gv=gv
 vnoremap <C-K> :m '<-2<CR>gv=gv
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
@@ -89,7 +94,7 @@ inoremap <c-s> <c-o>:Update<CR>
 
 " Colors
 set  t_Co=256
-colorscheme jellybeans
+colorscheme Tomorrow-Night
 set cursorline
 set colorcolumn=80
 set hlsearch
@@ -101,12 +106,6 @@ nmap <F9> :SCCompileRun<cr>
 " Undo dir
 set undodir=~/.vim/undodir
 set dir=~/.vim/swapdir
-
-" Watch vimrc and autoreload
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
 
 " Indentation
 vnoremap > >gv
