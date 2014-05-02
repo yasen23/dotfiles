@@ -1,5 +1,6 @@
 install: install-vim \
-	install-git
+	install-git \
+	install-tmux
 
 install-vim: install-git
 	ln -s `pwd`/.vim ~/.vim
