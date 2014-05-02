@@ -11,3 +11,6 @@ install-vim: install-git
 
 install-git:
 	ln -s `pwd`/.gitconfig ~/.gitconfig
+
+install-tmux:
+	ln -s `pwd`/.tmux.conf ~/.tmux.conf
