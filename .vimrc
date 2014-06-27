@@ -17,7 +17,6 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " Bundles
-" Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
 Plugin 'SingleCompile'
 Plugin 'Tagbar'
@@ -40,9 +39,9 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'adimit/prolog.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'airblade/vim-gitgutter'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -100,8 +99,10 @@ set colorcolumn=80
 set hlsearch
 
 " SimpleCompile
-nmap <F8> :SCCompile<cr>
-nmap <F9> :SCCompileRun<cr>
+map <F8> :SCCompile<cr>
+map <F9> :SCCompileRun<cr>
+autocmd Filetype cpp map <buffer> <F8> :SCCompileAF -std=c++11 <CR>
+autocmd Filetype cpp map <buffer> <F9> :SCCompileRunAF -std=c++11 <CR>
 
 " Undo dir
 set undodir=~/.vim/undodir
