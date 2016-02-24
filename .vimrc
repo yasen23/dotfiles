@@ -5,20 +5,21 @@ filetype plugin on
 set nocompatible
 
 set number
-" set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 autocmd BufWritePre * :%s/\s\+$//e
 
 set autoindent
+set incsearch
+set ignorecase
+set smartcase
 
 " Setup vundle
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Bundles
 Plugin 'bling/vim-airline'
-Plugin 'git@github.com:vim-scripts/netrw.vim.git'
 Plugin 'SingleCompile'
 Plugin 'Tagbar'
 Plugin 'The-NERD-tree'
@@ -40,8 +41,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-
 
 call vundle#end()
 filetype plugin indent on
@@ -74,6 +73,12 @@ let g:airline_powerline_fonts = 1
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
 map <F3> :TagbarToggle<CR>
+
+" - Show hidden files in NerdTree.
+let NERDTreeShowHidden=1
+" - Autopen NERDTree and focus cursor in new document.
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p"
 
 " Tagbar
 let g:tagbar_compact = 1
@@ -123,7 +128,7 @@ vnoremap <Leader>y "+y
 " Disable Background Color Erase (BCE) so that color schemes
 " work properly when Vim is used inside tmux and GNU screen.
 if &term =~ '256color'
-    set t_ut=
+  set t_ut=
 endif
 
 " Mouse
@@ -131,16 +136,17 @@ set mouse=a
 
 " ctrlp
 let g:ctrlp_max_files = 0
+
 " The Silver Searcher
 if executable('ag')
-	 " Use ag over grep
-	 set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-	 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-	" ag is fast enough that CtrlP doesn't need to cache
-	let g:ctrlp_use_caching = 0
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 
 endif
 
@@ -149,3 +155,9 @@ noremap <leader>s :Ag
 
 " bind K to search grep word under the cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+
+" The fun starts here.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
