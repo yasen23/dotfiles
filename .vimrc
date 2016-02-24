@@ -18,29 +18,29 @@ call vundle#begin()
 
 " Bundles
 Plugin 'bling/vim-airline'
+Plugin 'git@github.com:vim-scripts/netrw.vim.git'
 Plugin 'SingleCompile'
 Plugin 'Tagbar'
 Plugin 'The-NERD-tree'
-Plugin 'abijr/colorpicker'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'gmarik/vundle'
-Plugin 'guns/vim-clojure-static'
 Plugin 'hlissner/vim-multiedit'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'wincent/Command-T'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'rking/ag.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 
 call vundle#end()
@@ -120,3 +120,32 @@ set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕ�
 nnoremap <Leader>p "+p
 vnoremap <Leader>y "+y
 
+" Disable Background Color Erase (BCE) so that color schemes
+" work properly when Vim is used inside tmux and GNU screen.
+if &term =~ '256color'
+    set t_ut=
+endif
+
+" Mouse
+set mouse=a
+
+" ctrlp
+let g:ctrlp_max_files = 0
+" The Silver Searcher
+if executable('ag')
+	 " Use ag over grep
+	 set grepprg=ag\ --nogroup\ --nocolor
+
+	 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+	" ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+
+endif
+
+" Search with Ag
+noremap <leader>s :Ag
+
+" bind K to search grep word under the cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
